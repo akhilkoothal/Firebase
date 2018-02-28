@@ -14,12 +14,27 @@ import SCLAlertView
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var emailLabel: UITextField!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           buttonUIRegistration()
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatOrange
+    }
+    
+    func buttonUIRegistration()
+    {
+        signUpButton.backgroundColor = UIColor.flatOrange
+        signUpButton.layer.cornerRadius = 10
+        signUpButton.layer.borderWidth = 1
     }
 
     

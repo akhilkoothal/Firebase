@@ -11,6 +11,7 @@ import Stripe
 import CoreGraphics
 import SVProgressHUD
 import AVKit
+import SCLAlertView
 
 
 
@@ -25,7 +26,11 @@ class PayViewController: UIViewController, STPPaymentCardTextFieldDelegate {
 
     @IBAction func paymentDoneButton(_ sender: Any)
     {
-        dismiss(animated: true, completion: nil)
+        let alert = SCLAlertView()
+        alert.addButton("Submit", action: {
+            self.dismiss(animated: true, completion: nil)
+        })
+        alert.showSuccess("Submit", subTitle: "Transcation will be completed press submit!", closeButtonTitle:"Cancel")
     }
     
     override func viewDidLoad() {

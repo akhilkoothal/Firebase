@@ -10,23 +10,40 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import SCLAlertView
+import ChameleonFramework
 
 
 class SignInVC: UIViewController {
-
+    @IBOutlet var colorfulUI: UIView!
+    
+    @IBOutlet weak var registrationButton: UIButton!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userEmail: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     var titleValue : String?
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        
-        
+        buttonUI()
+        //self.navigationController?.navigationBar.barTintColor = UIColor.flatOrange
+
     }
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func buttonUI()
+    {
+        signInButton.backgroundColor = UIColor.flatOrange
+        signInButton.layer.cornerRadius = 10
+        signInButton.layer.borderWidth = 1
+        
+        registrationButton.layer.cornerRadius = 10
+        registrationButton.layer.borderWidth = 1
+        registrationButton.layer.borderColor = UIColor.flatOrange.cgColor
     }
 
 
@@ -64,13 +81,18 @@ class SignInVC: UIViewController {
     
     func alertBox(error:String)
     {
-        SCLAlertView().showError("Error", subTitle: error)
-//        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-//        
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-////        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//        
-//        self.present(alert, animated: true)
+        
+            SCLAlertView().showError("Error", subTitle: error)
+//        else if(alertBoxValue==2)
+//        {
+//            let alert = SCLAlertView()
+//
+//            alert.addButton("Submit", action: {
+//                self.performSegue(withIdentifier: "WelcomePage", sender: nil)
+//            })
+//            alert.showSuccess("Sucess", subTitle: "LOG IN successful", closeButtonTitle:nil duration:0.0f)
+//        }
+
     }
     
     

@@ -19,6 +19,7 @@ class StorageVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     
 
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     var titles = [String]()
     var videoLinks = [String]()
@@ -29,12 +30,15 @@ class StorageVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     var selectedProgram = ""
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
+//        navigationController.navBar.barTintColor = UIColor.flatOrange
+        
         videoRetreive()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imagePicker.delegate = self
         print("user ID: ",Auth.auth().currentUser?.email)
         navigationItem.title = NavTitle
@@ -73,16 +77,18 @@ class StorageVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     func getUserVideoName()
     {
         let alert = SCLAlertView()
+        
         let txt = alert.addTextField("Enter your name")
             print("Text value: \(txt.text)")
         
-        alert.addButton("Done", action: { // create button on alert
+        alert.addButton("Submit", action: { // create button on alert
             print("click click") // action on click
             self.VideoName = txt.text
             
             self.ImagePicker()
         })
-        alert.showInfo("Video Name", subTitle: "Add Video Name")
+        
+        alert.showInfo("Video Name", subTitle: "Add Video Name",closeButtonTitle: "Cancel")
         
 //        self.ImagePicker()
         

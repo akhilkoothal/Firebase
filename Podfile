@@ -13,6 +13,7 @@ target 'FirebaseBasics' do
 	pod 'CardIO'
 	pod 'SVProgressHUD'
 	pod 'AAPlayer'
+	pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   # Pods for FirebaseBasics
 
